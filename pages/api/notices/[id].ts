@@ -16,6 +16,22 @@ export default async function handler(
 
   try {
     switch (req.method) {
+      case "GET": {
+        const notice = await prisma.notice.findUnique({
+          where: {
+            id,
+          },
+        });
+
+        if (!notice) {
+          return res.status(404).json({
+            message: "Notice not found.",
+          });
+        }
+
+        return res.status(200).json(notice);
+      }
+      
       case "PUT": {
         const parsed = noticeSchema.safeParse(req.body);
 
