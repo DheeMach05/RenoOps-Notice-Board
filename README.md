@@ -1,40 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Reno Notice Board
+
+A full-stack Notice Board application built as part of the Reno Platforms Web Development Assignment.
+
+The application supports complete CRUD (Create, Read, Update and Delete) operations for notices, with server-side validation, Prisma ORM, TiDB Cloud database, and deployment on Vercel.
+
+---
+
+## Live Demo
+
+**Vercel Deployment**
+
+https://reno-ops-notice-board-x57q.vercel.app/
+---
+
+## GitHub Repository
+
+Replace this with your repository URL:
+
+https://github.com/DheeMach05/RenoOps-Notice-Board
+
+---
+
+## Features
+
+- Create a new notice
+- View all notices
+- Edit an existing notice
+- Delete a notice with confirmation
+- Responsive design for desktop and mobile
+- Urgent notices displayed with a red badge
+- Optional image support for notices
+- Server-side validation using Zod
+- Persistent storage using TiDB Cloud and Prisma ORM
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- Next.js (Pages Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+
+- Next.js API Routes
+- Prisma ORM
+- Zod Validation
+
+### Database
+
+- TiDB Cloud (MySQL Compatible)
+
+### Deployment
+
+- Vercel
+
+---
+
+## Project Structure
+
+```
+components/
+    layout/
+    notice/
+
+lib/
+pages/
+    api/
+    notices/
+
+prisma/
+styles/
+types/
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/DheeMach05/RenoOps-Notice-Board.git
+
+cd RenoOps-Notice-Board
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create an environment file
+
+Create a `.env` file in the project root.
+
+```
+DATABASE_URL=your_tidb_connection_string
+```
+
+### 4. Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### 5. Run the application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## API Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/notices | Fetch all notices |
+| POST | /api/notices | Create a notice |
+| PUT | /api/notices/:id | Update a notice |
+| DELETE | /api/notices/:id | Delete a notice |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Validation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Server-side validation is implemented using **Zod**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Validation includes:
 
-## Deploy on Vercel
+- Required title
+- Required body
+- Valid publish date
+- Valid category
+- Valid priority
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Validation is performed inside the API routes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+## One Improvement With More Time
+
+If I had more time, I would implement:
+
+- Authentication and user roles (Admin/User)
+- Notice search and filtering
+- Pagination for large datasets
+- Image upload using cloud storage instead of image URLs
+- Unit and integration tests
+- Better error handling and loading states
+- Rich text editor for notice descriptions
+
+---
+
+## AI Usage
+
+AI tools were used as a development assistant during this assignment.
+
+Specifically, AI was used to:
+
+- Understand parts of the assignment requirements.
+- Troubleshoot development issues and build errors.
+- Explain Next.js, Prisma, and TypeScript concepts.
+- Review code structure and suggest improvements.
+- Assist with debugging deployment and configuration issues.
+
+All implementation decisions, testing, integration, debugging, and final verification were completed manually. AI assistance was used to accelerate development and learning, while ensuring the final code was reviewed and validated before submission.
+
+---
+
+## Assignment Requirements Covered
+
+- Full CRUD functionality
+- Next.js Pages Router
+- Prisma ORM
+- TiDB Cloud database
+- REST API
+- Server-side validation
+- Responsive UI
+- Vercel deployment
+
+---
+
+## Author
+
+**Dheemanth Macherla**
+
+GitHub:
+https://github.com/DheeMach05
